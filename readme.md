@@ -5,6 +5,14 @@
 * docker-compose up
 * app running on port 9010
 
+# Configuration
+
+```mysql
+CREATE USER 'root'@'%' IDENTIFIED BY 'root';
+GRANT ALL ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+
+```
 
 # Game Post
 

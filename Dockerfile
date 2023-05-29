@@ -13,7 +13,8 @@ RUN cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo "Asia/Jakarta" > 
 
 ENV GOARM=7 \
     GOOS=linux \
-    GOARCH=amd64
+    GOARCH=amd64\
+    GOFLAGS=-buildvcs=false
 
 ENV WAIT_VERSION 2.7.2
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
