@@ -31,8 +31,5 @@ COPY . .
 RUN go env -w GO111MODULE=on
 RUN go get -v
 
-RUN go build -o main .
-
-COPY main ./tmp
 # Run the app
 CMD ["air"]

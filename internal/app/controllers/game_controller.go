@@ -63,5 +63,5 @@ func (ctl *GameController) Gets(c *gin.Context) {
 	if len(games) > 0 {
 		c.JSON(200, games)
 	}
-	c.JSON(404, "empty game")
+	c.JSON(404, "empty games")
 }

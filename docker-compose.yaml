@@ -8,7 +8,6 @@ services:
     ports:
       - "9010:9010"
     volumes:
-      - "./log:/app/log"
       - "./:/app"
       - "./tmp:/app/tmp"
     depends_on:
