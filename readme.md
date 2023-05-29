@@ -7,6 +7,14 @@
 
 # Configuration
 
+Enter into mysql container
+
+```
+docker exec -it database-mysql bash
+```
+
+Run query
+
 ```mysql
 CREATE USER 'root'@'%' IDENTIFIED BY 'root';
 GRANT ALL ON *.* TO 'root'@'%';
