@@ -1,0 +1,23 @@
+app:
+  host: "0.0.0.0"
+  env: "local"
+  port: 9010
+  code: "001"
+  version: "v0.0.1-local"
+
+database:
+  driver: "mysql"
+  name: "golang_test"
+  user: "root"
+  password: "root"
+  host: "db"
+  port: "3306"
+  additionalParameters: "charset=utf8&parseTime=true"
+
+server:
+  port: "80"
+
+errorMap:
+  1001:
+    id: "Error koneksi database"
+    en: "Database connection error"

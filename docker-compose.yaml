@@ -1,0 +1,46 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "/wait && air"
+    ports:
+      - "9010:9010"
+    volumes:
+      - "./log:/app/log"
+      - "./:/app"
+      - "./tmp:/app/tmp"
+    depends_on:
+      - db
+    networks:
+      - backend-test-golang
+    environment:
+      - WAIT_HOSTS=db:3306
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=5
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+    links:
+      - db
+    env_file:
+      - .env
+
+  db:
+    container_name: database-mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password --init-file /data/application/init.sql
+    restart: always
+    ports:
+      - "33010:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - db-mysql:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
+    networks:
+      - backend-test-golang
+networks:
+  backend-test-golang:
+
+volumes:
+  db-mysql:

@@ -1,0 +1,31 @@
+vendor/
+bin/
+.idea/
+/tests/performance_test/tests/target/
+*.out
+*.log
+*.tmp
+.DS_STORE
+.DS_Store
+
+# config file
+.env
+params/.env
+config.yaml
+launch.json
+.vscode
+
+# executables & libs
+bank-statement-assignment-service
+*.exe
+*.so
+*.dll
+*.test
+*.dylib
+
+# decrypted secret file
+*.dec
+tmp/*
+/tmp/*
+/logs/
+/tests/generators/
