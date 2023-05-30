@@ -35,11 +35,12 @@ func (ctl *GameController) Insert(c *gin.Context) {
 	}
 
 	mDate, _ := time.Parse("02 January 2006", payload.Mdate)
+	unixMdate := mDate.Unix()
 
 	game := models.Game{
 		Id:      payload.Id,
 		Stadium: payload.Stadium,
-		Mdate:   mDate.Unix(),
+		Mdate:   &unixMdate,
 		Team1:   payload.Team1,
 		Team2:   payload.Team2,
 	}
@@ -62,6 +63,7 @@ func (ctl *GameController) Gets(c *gin.Context) {
 	games := ctl.Services.Game.Gets()
 	if len(games) > 0 {
 		c.JSON(200, games)
+	} else {
+		c.JSON(404, "empty games")
 	}
-	c.JSON(404, "empty games")
 }

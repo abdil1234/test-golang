@@ -14,6 +14,11 @@ FLUSH PRIVILEGES;
 
 ```
 
+# Unit Testing
+To run unit testing
+```
+go test  ./...
+```
 # Game Post
 
     POST http://localhost:9010/golang-test/api/v1/game

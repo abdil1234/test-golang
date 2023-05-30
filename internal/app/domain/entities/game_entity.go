@@ -18,7 +18,7 @@ type GameEntity struct {
 }
 
 func (g *GameModel) ToGameEntity() *GameEntity {
-	mdate := time.Unix(g.Game.Mdate, 0).Format("02 January 2006")
+	mdate := time.Unix(*g.Game.Mdate, 0).Format("02 January 2006")
 
 	return &GameEntity{
 		Id:      g.Game.Id,
