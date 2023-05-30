@@ -7,6 +7,14 @@
 
 # Configuration
 
+Enter into mysql container
+
+```
+docker exec -it database-mysql bash
+```
+
+Run query
+
 ```mysql
 CREATE USER 'root'@'%' IDENTIFIED BY 'root';
 GRANT ALL ON *.* TO 'root'@'%';
@@ -23,11 +31,13 @@ go test  ./...
 
     POST http://localhost:9010/golang-test/api/v1/game
 
-<img width="500" alt="Screen Shot 2023-05-29 at 17 45 40" src="https://github.com/abdil1234/test-golang/assets/31970269/481c4a23-432e-46a9-84dd-362756fe1c5b">
+<img width="500" alt="Screen Shot 2023-05-30 at 01 18 41" src="https://github.com/abdil1234/test-golang/assets/31970269/67dfb8fc-0f09-488f-b372-0d647f2fdb9c">
+
 
 
 # Game List
 
     GET http://localhost:9010/golang-test/api/v1/games
 
-<img width="500" alt="Screen Shot 2023-05-29 at 17 44 56" src="https://github.com/abdil1234/test-golang/assets/31970269/163e9e72-20fe-4650-b596-b399a3886e9b">
+<img width="500" alt="Screen Shot 2023-05-30 at 01 19 34" src="https://github.com/abdil1234/test-golang/assets/31970269/e28fcff9-438a-448d-9345-cad44cb19ee9">
+
