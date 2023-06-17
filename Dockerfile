@@ -13,14 +13,13 @@ RUN cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo "Asia/Jakarta" > 
 
 ENV GOARM=7 \
     GOOS=linux \
-    GOARCH=amd64\
-    GOFLAGS=-buildvcs=false
+    GOARCH=amd64
 
 ENV WAIT_VERSION 2.7.2
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
 RUN chmod +x /wait
 
-RUN curl -fLo install.sh https://raw.githubusercontent.com/cosmtrek/air/master/install.sh && chmod +x install.sh && sh install.sh && cp ./bin/air /bin/air
+RUN go install github.com/cosmtrek/air@latest
 
 # Set working directory for docker container to /app
 WORKDIR /app
